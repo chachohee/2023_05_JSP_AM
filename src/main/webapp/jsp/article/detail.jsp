@@ -18,6 +18,7 @@
 	<div>작성일: <%= (LocalDateTime) article.get("regDate") %> </div>
 	<div>제목: <%= (String) article.get("title") %></div>
 	<div>내용: <%= (String) article.get("body") %></div>
+	<a href="doDelete?id=<%= article.get("id")%>">삭제</a>
 	<a href="list">목록</a>
 </body>
 </html>
