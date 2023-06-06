@@ -24,7 +24,7 @@ public class ArticleDeleteServlet extends HttpServlet {
 		Connection conn = null;
 
 		try {
-			System.out.println("=====프로그램 시작=====");
+			System.out.println("===== ArticleDeleteServlet =====");
 
 			Class.forName("com.mysql.cj.jdbc.Driver"); // ClassNotFoundException
 			String url = "jdbc:mysql://localhost:3306/jsp_article_manager";

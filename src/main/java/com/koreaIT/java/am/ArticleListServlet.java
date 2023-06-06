@@ -26,7 +26,7 @@ public class ArticleListServlet extends HttpServlet {
 		Connection conn = null;
 
 		try {
-			System.out.println("=====프로그램 시작=====");
+			System.out.println("===== ArticleListServlet =====");
 
 			Class.forName("com.mysql.cj.jdbc.Driver"); // ClassNotFoundException
 			String url = "jdbc:mysql://localhost:3306/jsp_article_manager";
