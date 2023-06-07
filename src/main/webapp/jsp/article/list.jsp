@@ -13,15 +13,29 @@
 </head>
 <body>
 	<h1>게시물 리스트</h1>
-	<ul>
-	<% 
-		for(Map<String,Object> articleMap : articleListMap){
-	%>
-		<li><%= articleMap.get("id") %>, <a href="detail?id=<%= articleMap.get("id")%>"><%= articleMap.get("title") %></a>, <%= articleMap.get("body") %></li>
-	<% 
-		} 
-	%>
-	</ul>
+	<table border="1">
+		<colgroup>
+			<col width="50" />
+			<col />
+			<col width="200"/>
+		</colgroup>
+		<tr>
+			<th>글 번호</th>
+			<th>제목</th>
+			<th>등록일</th>
+		</tr>
+		<%
+			for(Map<String, Object> articleMap: articleListMap){
+		%>
+		<tr>
+			<td><%= articleMap.get("id") %></td>
+			<td><a href="detail?id=<%= articleMap.get("id")%>"><%= articleMap.get("title") %></a></td>
+			<td><%= articleMap.get("regDate") %></td>
+		</tr>
+		<%
+			}
+		%>
+	</table>
 	<div><a href="../home/main">메인</a></div>
 </body>
 </html>
