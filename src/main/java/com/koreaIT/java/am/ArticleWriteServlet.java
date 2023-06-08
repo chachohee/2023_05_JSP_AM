@@ -10,7 +10,7 @@ import java.io.IOException;
 @WebServlet("/article/write")
 public class ArticleWriteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	//글쓰는 창 보여주는 서블릿
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/jsp/article/write.jsp").forward(request, response);
 	}
