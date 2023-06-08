@@ -10,6 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>게시글 상세보기</title>
 </head>
 <body>
@@ -19,7 +20,7 @@
 	<div>제목: <%= (String) article.get("title") %></div>
 	<div>내용: <%= (String) article.get("body") %></div>
 	<a href="modify?id=<%= (int) article.get("id")%>">수정</a>
-	<a href="doDelete?id=<%= (int) article.get("id")%>">삭제</a>
+	<a href="doDelete?id=<%= (int) article.get("id")%>" onclick="if(confirm('정말 삭제하시겠습니까?') == false) return false;">삭제</a>
 	<a href="list">목록</a>
 </body>
 </html>
