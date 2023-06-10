@@ -32,7 +32,7 @@ public class ArticleListServlet extends HttpServlet {
 			String url = "jdbc:mysql://localhost:3306/jsp_article_manager";
 			conn = DriverManager.getConnection(url, "root", ""); // SQLException
 			
-			int page = 1;
+			int page = 1; //몇번째 페이지 골라놨냐
 			if (request.getParameter("page") != null && request.getParameter("page").length() != 0) {
 				page = Integer.parseInt(request.getParameter("page"));
 			}
@@ -44,6 +44,15 @@ public class ArticleListServlet extends HttpServlet {
 			
 			int totalPage = (int) Math.ceil((double) totalCount / itemsInAPage);
 			
+			int pageSize = 5;
+			int from = page - pageSize; //앞에 5개
+			if (from < 1) {
+				from = 1;
+			}
+			int end = page + pageSize; //뒤에 5개
+			if (end > totalPage) {
+				end = totalPage;
+			}
 			sql = new SecSql();
 			sql.append("SELECT *");
 			sql.append("FROM article");
@@ -54,6 +63,8 @@ public class ArticleListServlet extends HttpServlet {
 			
 			request.setAttribute("page", page); //이거로 currentPage 구할 것임
 			request.setAttribute("totalPage", totalPage);
+			request.setAttribute("from", from);
+			request.setAttribute("end", end);
 			request.setAttribute("articleListMap", articleListMap);
 			request.getRequestDispatcher("/jsp/article/list.jsp").forward(request, response);
 		
