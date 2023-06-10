@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+import com.koreaIT.java.am.config.Config;
 import com.koreaIT.java.am.util.DBUtil;
 import com.koreaIT.java.am.util.SecSql;
 
@@ -28,9 +29,9 @@ public class ArticleListServlet extends HttpServlet {
 		try {
 			System.out.println("===== ArticleListServlet =====");
 
-			Class.forName("com.mysql.cj.jdbc.Driver"); // ClassNotFoundException
-			String url = "jdbc:mysql://localhost:3306/jsp_article_manager";
-			conn = DriverManager.getConnection(url, "root", ""); // SQLException
+			Class.forName(Config.getDBDriverName());
+			String url = Config.getDBUrl();
+			conn = DriverManager.getConnection(url, Config.getDBUser(), Config.getDBPwd());
 			
 			int page = 1; //몇번째 페이지 골라놨냐
 			if (request.getParameter("page") != null && request.getParameter("page").length() != 0) {

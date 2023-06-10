@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import com.koreaIT.java.am.config.Config;
 import com.koreaIT.java.am.util.DBUtil;
 import com.koreaIT.java.am.util.SecSql;
 
@@ -26,9 +27,9 @@ public class ArticleDoWriteServlet extends HttpServlet {
 		try {
 			System.out.println("===== ArticleDeleteServlet =====");
 
-			Class.forName("com.mysql.cj.jdbc.Driver"); // ClassNotFoundException
-			String url = "jdbc:mysql://localhost:3306/jsp_article_manager";
-			conn = DriverManager.getConnection(url, "root", ""); // SQLException
+			Class.forName(Config.getDBDriverName());
+			String url = Config.getDBUrl();
+			conn = DriverManager.getConnection(url, Config.getDBUser(), Config.getDBPwd());
 			
 			String title = request.getParameter("title");
 			String body = request.getParameter("body");
