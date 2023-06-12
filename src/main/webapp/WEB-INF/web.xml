@@ -79,4 +79,24 @@
     <servlet-name>ArticleDoModifyServlet</servlet-name>
     <url-pattern>/ArticleDoModifyServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MemberJoinServlet</display-name>
+    <servlet-name>MemberJoinServlet</servlet-name>
+    <servlet-class>com.koreaIT.java.am.MemberJoinServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberJoinServlet</servlet-name>
+    <url-pattern>/MemberJoinServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MemberFormServlet</display-name>
+    <servlet-name>MemberFormServlet</servlet-name>
+    <servlet-class>com.koreaIT.java.am.MemberFormServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberFormServlet</servlet-name>
+    <url-pattern>/MemberFormServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

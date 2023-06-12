@@ -14,8 +14,7 @@
 			제목: <input type="text" name="title" placeholder="제목을 입력해주세요.">
 		</div>
 		<div>
-			내용: <textarea name="body"placeholder="내용을 입력해주세요." ></textarea>
-			<!-- <input type="text" name="body"> -->
+			내용: <textarea name="body" placeholder="내용을 입력해주세요." ></textarea>
 		</div>
 		<input type="submit" value="등록"><input type="reset" value="다시 입력">
 	</form>
