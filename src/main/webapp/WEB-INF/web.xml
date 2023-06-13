@@ -119,4 +119,14 @@
     <servlet-name>MemberDoLoginServlet</servlet-name>
     <url-pattern>/MemberDoLoginServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MemberDoLogoutServlet</display-name>
+    <servlet-name>MemberDoLogoutServlet</servlet-name>
+    <servlet-class>com.koreaIT.java.am.MemberDoLogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberDoLogoutServlet</servlet-name>
+    <url-pattern>/MemberDoLogoutServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -9,20 +9,19 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebServlet("/home/main")
-public class HomeMainServlet extends HttpServlet {
+@WebServlet("/member/doLogout")
+public class MemberDoLogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("===== HomeMainServlet =====");
-		
+		response.setContentType("text/html; charset=utf-8");
 		HttpSession session = request.getSession();
-		int loginedMemberId = -1;
-		if(session.getAttribute("loginedMemberId") != null) {
-			loginedMemberId = (int) session.getAttribute("loginedMemberId");
-		}
-		request.setAttribute("loginedMemberId", loginedMemberId);
-		request.getRequestDispatcher("/jsp/home/main.jsp").forward(request, response);
+		session.removeAttribute("loginedMemberId");
+		response.getWriter().append(String.format("<script>alert('로그아웃 되었습니다.); location.replace('../home/main');</script>"));
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 	}
 
 }
