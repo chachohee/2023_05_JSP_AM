@@ -10,6 +10,8 @@ CREATE TABLE article(
     `body` TEXT NOT NULL
 );
 
+ALTER TABLE article ADD COLUMN memberId INT UNSIGNED NOT NULL AFTER updateDate;
+
 SELECT * FROM article;
 SELECT * FROM article
 ORDER BY id DESC;
@@ -17,10 +19,12 @@ SELECT COUNT(*) FROM article;
 
 INSERT INTO article
 SET updateDate = NOW(),
+memberId = 1,
 title = '제목1',
 `body` = '내용1';
 INSERT INTO article
 SET updateDate = NOW(),
+memberId = 2,
 title = '제목2',
 `body` = '내용2';
 
@@ -28,3 +32,24 @@ TRUNCATE article;
 
 INSERT INTO article(updateDate, title, `body`)
 SELECT NOW(), CONCAT('제목_', FLOOR(RAND() * 4) + 1), CONCAT('내용_', FLOOR(RAND() * 4) + 1) FROM article;
+
+CREATE TABLE `member` (
+	id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	regDate DATETIME NOT NULL DEFAULT NOW(),
+	updateDate DATETIME NOT NULL,
+	loginId VARCHAR(50) NOT NULL UNIQUE,
+	loginPw VARCHAR(100) NOT NULL,
+	`name` VARCHAR(50) NOT NULL
+);
+SELECT * FROM `member`;
+TRUNCATE `member`;
+INSERT INTO `member`
+SET updateDate = NOW(),
+loginId = 'cha',
+loginPw = '1234',
+`name`= '차초희';
+INSERT INTO `member`
+SET updateDate = NOW(),
+loginId = 'park',
+loginPw = '1234',
+`name`= '박종현';

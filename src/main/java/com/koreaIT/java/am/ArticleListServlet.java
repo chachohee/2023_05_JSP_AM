@@ -16,6 +16,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/article/list")
 public class ArticleListServlet extends HttpServlet {
@@ -54,6 +55,13 @@ public class ArticleListServlet extends HttpServlet {
 			if (end > totalPage) {
 				end = totalPage;
 			}
+			
+			HttpSession session = request.getSession();
+			int loginedMemberId = -1;
+			if(session.getAttribute("loginedMemberId") != null) {
+				loginedMemberId = (int) session.getAttribute("loginedMemberId");
+			}
+			
 			sql = new SecSql();
 			sql.append("SELECT *");
 			sql.append("FROM article");
@@ -62,11 +70,12 @@ public class ArticleListServlet extends HttpServlet {
 			
 			List<Map<String, Object>> articleListMap = DBUtil.selectRows(conn, sql);
 			
-			request.setAttribute("page", page); //이거로 currentPage 구할 것임
+			request.setAttribute("page", page);
 			request.setAttribute("totalPage", totalPage);
 			request.setAttribute("from", from);
 			request.setAttribute("end", end);
 			request.setAttribute("articleListMap", articleListMap);
+			request.setAttribute("loginedMemberId", loginedMemberId);
 			request.getRequestDispatcher("/jsp/article/list.jsp").forward(request, response);
 		
 		} catch (ClassNotFoundException e) {
