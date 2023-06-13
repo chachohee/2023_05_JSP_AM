@@ -15,7 +15,7 @@
 		if (form.name.value.length == 0) {
 			alert('이름은 필수입니다.');
 			form.name.focus();
-			return
+			return;
 		}
 		if (form.loginId.value.length == 0) {
 			alert('아이디는 필수입니다.');
@@ -44,17 +44,17 @@
 </script>
 </head>
 <body>
-	<h1>회원가입 창</h1>
+	<h1>회원가입</h1>
 	<form action="doJoin" method="post"
 		onsubmit="joinFormSubmit(this); return false;">
 		<table border="1">
 			<tr>
 				<td>이름</td>
-				<td><input type="text" name="name" placeholder="User Name" /></td>
+				<td><input type="text" name="name" placeholder="User Name" autocomplete="off" /></td>
 			</tr>
 			<tr>
 				<td>아이디</td>
-				<td><input type="text" name="loginId" placeholder="ID" /></td>
+				<td><input type="text" name="loginId" placeholder="ID" required="required" /></td>
 			</tr>
 			<tr>
 				<td>비밀번호</td>

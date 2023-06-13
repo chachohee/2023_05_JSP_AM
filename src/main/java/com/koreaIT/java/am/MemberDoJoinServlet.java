@@ -42,7 +42,7 @@ public class MemberDoJoinServlet extends HttpServlet {
 			sql.append(", loginId = ?", loginId);
 			sql.append(", loginPw = ?", loginPw);
 			DBUtil.insert(conn, sql);
-			response.getWriter().append(String.format("<script>alert('%s님 환영합니다.^^'); location.replace('../home/main');</script>", loginId));
+			response.getWriter().append(String.format("<script>alert('%s님이 가입되었습니다.'); location.replace('../home/main');</script>", loginId));
 		
 		} catch (ClassNotFoundException e) {
 			System.out.println("드라이버 로딩 실패");

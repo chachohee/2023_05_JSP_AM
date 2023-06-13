@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Map;
 
 import com.koreaIT.java.am.config.Config;
 import com.koreaIT.java.am.util.DBUtil;
@@ -37,7 +38,16 @@ public class MemberDoLoginServlet extends HttpServlet {
 			sql.append("SELECT *");
 			sql.append("FROM `member`");
 			sql.append("WHERE loginId = ?", loginId);
-			DBUtil.selectRow(conn, sql);
+			Map<String, Object> memberRow = DBUtil.selectRow(conn, sql);
+			
+			if(memberRow.isEmpty()) {
+				response.getWriter().append(String.format("<script>alert('%s는 존재하지 않는 아이디입니다.'); location.replace('login');</script>", loginId));
+				return;
+			}
+			if(memberRow.get("loginPw").equals(loginPw) == false) {
+				response.getWriter().append(String.format("<script>alert('비밀번호가 일치하지 않습니다.'); location.replace('login');</script>"));
+				return;
+			}
 			response.getWriter().append(String.format("<script>alert('%s님 환영합니다.^^'); location.replace('../home/main');</script>", loginId));
 		
 		} catch (ClassNotFoundException e) {
