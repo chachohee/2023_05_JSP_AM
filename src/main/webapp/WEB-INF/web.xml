@@ -99,4 +99,24 @@
     <servlet-name>MemberFormServlet</servlet-name>
     <url-pattern>/MemberFormServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MemberLoginServlet</display-name>
+    <servlet-name>MemberLoginServlet</servlet-name>
+    <servlet-class>com.koreaIT.java.am.MemberLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberLoginServlet</servlet-name>
+    <url-pattern>/MemberLoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MemberDoLoginServlet</display-name>
+    <servlet-name>MemberDoLoginServlet</servlet-name>
+    <servlet-class>com.koreaIT.java.am.MemberDoLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MemberDoLoginServlet</servlet-name>
+    <url-pattern>/MemberDoLoginServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
