@@ -15,7 +15,13 @@ ALTER TABLE article ADD COLUMN memberId INT UNSIGNED NOT NULL AFTER updateDate;
 SELECT * FROM article;
 SELECT * FROM article
 ORDER BY id DESC;
-SELECT COUNT(*) FROM article; 
+SELECT COUNT(*) FROM article;
+
+select a.*, m.name
+from article as a
+inner join `member` as m 
+on a.memberId = m.id
+order by a.id desc;
 
 INSERT INTO article
 SET updateDate = NOW(),

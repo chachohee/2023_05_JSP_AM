@@ -14,9 +14,10 @@
 <title>게시글 상세보기</title>
 </head>
 <body>
-	<h1>글 상세보기 페이지</h1>
+	<h1><%= article.get("id") %>번 게시물</h1>
 	<div>글 번호: <%= (int) article.get("id") %> </div>
 	<div>작성일: <%= (LocalDateTime) article.get("regDate") %> </div>
+	<div>작성자: <%=(String) article.get("name") %></div>
 	<div>제목: <%= (String) article.get("title") %></div>
 	<div>내용: <%= (String) article.get("body") %></div>
 	<a href="modify?id=<%= (int) article.get("id")%>">수정</a>

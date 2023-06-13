@@ -34,9 +34,11 @@ public class ArticleDetailServlet extends HttpServlet {
 			int id = Integer.parseInt(request.getParameter("id"));//넘겨 받은 id 형변환.
 			
 			SecSql sql = new SecSql();
-			sql.append("SELECT *");
-			sql.append("FROM article");
-			sql.append("WHERE id = ?", id);
+			sql.append("SELECT a.*, m.name");
+			sql.append("FROM article AS a");
+			sql.append("INNER JOIN `member` AS m");
+			sql.append("ON a.memberId = m.id");
+			sql.append("WHERE a.id = ?", id);
 			Map<String, Object> article = DBUtil.selectRow(conn, sql);
 			request.setAttribute("article", article);
 			request.getRequestDispatcher("/jsp/article/detail.jsp").forward(request, response);
