@@ -50,11 +50,11 @@
 		<table border="1">
 			<tr>
 				<td>이름</td>
-				<td><input type="text" name="name" placeholder="User Name" autocomplete="off" /></td>
+				<td><input type="text" name="name" placeholder="User Name"/></td>
 			</tr>
 			<tr>
 				<td>아이디</td>
-				<td><input type="text" name="loginId" placeholder="ID" required="required" /></td>
+				<td><input type="text" name="loginId" placeholder="ID"/></td>
 			</tr>
 			<tr>
 				<td>비밀번호</td>

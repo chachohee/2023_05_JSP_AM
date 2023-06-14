@@ -8,7 +8,7 @@
 	int totalPage = (int) request.getAttribute("totalPage");
 	int from = (int) request.getAttribute("from");
 	int end = (int) request.getAttribute("end");
-	int loginedMemberid = (int) request.getAttribute("loginedMemberId");
+	int loginedMemberId = (int) request.getAttribute("loginedMemberId");
 %>
 <!DOCTYPE html>
 <html>
@@ -20,7 +20,7 @@
 	<h1>게시물 리스트</h1>
 	<div><a href="../home/main">메인</a></div>
 	<%
-		if(loginedMemberid != -1){
+		if(loginedMemberId != -1){
 	%>
 		<div><a href="write">글쓰기</a></div>
 	<%
