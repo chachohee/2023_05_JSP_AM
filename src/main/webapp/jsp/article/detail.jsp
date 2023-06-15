@@ -5,7 +5,6 @@
     pageEncoding="UTF-8"%>
 <%
 	Map<String, Object> article = (Map<String, Object>) request.getAttribute("article");
-	int loginedMemberId = (int) request.getAttribute("loginedMemberId");
 %>
 <!DOCTYPE html>
 <html>
@@ -15,6 +14,7 @@
 <title>게시글 상세보기</title>
 </head>
 <body>
+	<%@ include file="../common/topBar.jsp" %>
 	<h1><%= article.get("id") %>번 게시물</h1>
 	<div>글 번호: <%= (int) article.get("id") %> </div>
 	<div>작성일: <%= (LocalDateTime) article.get("regDate") %> </div>

@@ -13,6 +13,7 @@
 <title>게시글 수정</title>
 </head>
 <body>
+	<%@ include file="../common/topBar.jsp" %>
 	<h1>글 수정 페이지</h1>
 	<div>글 번호: <%= (int) article.get("id") %> </div>
 	<div>작성일: <%= (LocalDateTime) article.get("regDate") %> </div>
